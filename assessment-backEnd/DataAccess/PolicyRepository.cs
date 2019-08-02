@@ -93,9 +93,16 @@ namespace DataAccess
         }
 
 
-        public ClientDTO GetByName(string name)
+        public List<PoliciesDTO> GetByName(string name)
         {
-            return this.Clients.Where(x => x.Name == name).FirstOrDefault();
+            var client = this.Clients.Where(x => x.Name == name).FirstOrDefault();
+            if (client == null)
+            {
+                return null;
+            }
+            
+
+            return this.Policies.Where(x => x.ClientId == client.Id).ToList();
         }
 
     }

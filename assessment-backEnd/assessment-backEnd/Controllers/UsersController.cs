@@ -41,11 +41,8 @@ namespace assessment_backEnd.Controllers
 
                 return StatusCode(500);
             }
-
-           
-
-
-
+                     
+                       
         }
 
         [HttpGet("GetByName/{name}")]

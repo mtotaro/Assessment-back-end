@@ -1,6 +1,7 @@
 ﻿using DataAccess;
 using DTO;
 using System;
+using System.Collections.Generic;
 
 namespace BLL
 {
@@ -14,10 +15,10 @@ namespace BLL
 
         }
 
-        public ClientDTO GetByName(string name)
+        public List<PoliciesDTO> GetPoliciesFromUser(string name)
         {
-            ClientRepository clRep = new ClientRepository();
-            return clRep.GetByName(name);
+            PolicyRepository pRep = new PolicyRepository();
+            return pRep.GetByName(name);
         }
     }
 }

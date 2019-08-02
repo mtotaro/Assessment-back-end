@@ -28,9 +28,9 @@ namespace assessment_backEnd.Controllers
                 }
                 else
                 {
-                    ClientService clService = new ClientService();
-                    var clientDTO = clService.GetById(id);
-                    return StatusCode(200, clientDTO != null ? JsonConvert.SerializeObject(clientDTO) : "Client not found");
+                    PolicyService pService = new PolicyService();
+                    var clientDTO = pService.GetUserFromPolicy(id);
+                    return StatusCode(200, clientDTO != null ? JsonConvert.SerializeObject(clientDTO) : "Client not found/ Error with Policy number");
 
                 }
             }
@@ -46,13 +46,13 @@ namespace assessment_backEnd.Controllers
 
         }
 
-        [HttpGet("GetByName/{name}")]
+        [HttpGet("GetPoliciesFromUser/{name}")]
         public ActionResult Get(string name)
         {
             try
             {
                 string cookieValue = Request.Cookies["clientId"];
-                var authorizeCode = Authorize.AuthorizeClient(cookieValue, eRoles.admin.ToString(), eRoles.user.ToString());
+                var authorizeCode = Authorize.AuthorizeClient(cookieValue, eRoles.admin.ToString());
 
                 if (authorizeCode < 200 || authorizeCode > 299)
                 {
@@ -60,10 +60,10 @@ namespace assessment_backEnd.Controllers
                 }
                 else
                 {
-                    ClientService clService = new ClientService();
-                    var clientDTO = clService.GetByName(name);
+                    PolicyService pService = new PolicyService();
+                    var policyDTO = pService.GetPoliciesFromUser(name);
 
-                    return StatusCode(200, clientDTO != null ? JsonConvert.SerializeObject(clientDTO) : "Client not found");
+                    return StatusCode(200, policyDTO != null ? JsonConvert.SerializeObject(policyDTO) : "Policies not found");
                 }
             }
             catch (Exception ex)
