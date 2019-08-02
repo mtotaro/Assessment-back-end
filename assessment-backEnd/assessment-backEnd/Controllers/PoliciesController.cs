@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using assessment_backEnd.Security;
 using BLL;
+using DTO.enums;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace assessment_backEnd.Controllers
 {
@@ -12,19 +15,65 @@ namespace assessment_backEnd.Controllers
     [ApiController]
     public class PoliciesController : ControllerBase
     {
-        [HttpGet("{name}")]
-        public JsonResult Get(string name)
+        [HttpGet("GetUserFromPolicy/{id}")]
+        public ActionResult Get(Guid id)
         {
-            var policies = new Policies();
+            try
+            {
+                string cookieValue = Request.Cookies["clientId"];
+                var authorizeCode = Authorize.AuthorizeClient(cookieValue, eRoles.admin.ToString());
+                if (authorizeCode < 200 || authorizeCode > 299)
+                {
+                    return StatusCode(authorizeCode);
+                }
+                else
+                {
+                    ClientService clService = new ClientService();
+                    var clientDTO = clService.GetById(id);
+                    return StatusCode(200, clientDTO != null ? JsonConvert.SerializeObject(clientDTO) : "Client not found");
 
-            return new JsonResult("value");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return StatusCode(500);
+            }
+
+
+
+
+
         }
 
-        [HttpGet("{id}")]
-        public JsonResult Get(Guid id)
+        [HttpGet("GetByName/{name}")]
+        public ActionResult Get(string name)
         {
-            return new JsonResult("value");
-        }
+            try
+            {
+                string cookieValue = Request.Cookies["clientId"];
+                var authorizeCode = Authorize.AuthorizeClient(cookieValue, eRoles.admin.ToString(), eRoles.user.ToString());
 
+                if (authorizeCode < 200 || authorizeCode > 299)
+                {
+                    return StatusCode(authorizeCode);
+                }
+                else
+                {
+                    ClientService clService = new ClientService();
+                    var clientDTO = clService.GetByName(name);
+
+                    return StatusCode(200, clientDTO != null ? JsonConvert.SerializeObject(clientDTO) : "Client not found");
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500);
+            }
+
+
+        }
     }
+
+}
 }

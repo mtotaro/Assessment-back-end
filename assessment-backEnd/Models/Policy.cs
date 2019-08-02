@@ -4,7 +4,11 @@ using System.Text;
 
 namespace Models
 {
-
+    public class Policies
+    {
+        public List<Policy> policies { get; set; }
+    }
+    
     public class Policy
     {
         public Guid Id { get; set; }
