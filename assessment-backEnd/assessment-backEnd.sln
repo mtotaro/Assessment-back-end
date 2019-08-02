@@ -3,19 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "assessment-backEnd", "assessment-backEnd\assessment-backEnd.csproj", "{3A9E56F1-E857-40E7-B7AB-BF973120802F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "assessment-backEnd", "assessment-backEnd\assessment-backEnd.csproj", "{3A9E56F1-E857-40E7-B7AB-BF973120802F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{7F043693-0A9A-42C4-A2A9-A5F4EAB5C9BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Models", "Models\Models.csproj", "{7F043693-0A9A-42C4-A2A9-A5F4EAB5C9BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helpers", "Helpers\Helpers.csproj", "{C2DCA034-80B6-4058-8BAA-8D6306852C29}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "BLL\BLL.csproj", "{380C3790-C9B5-4B86-9C60-D59AB87A7AB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{380C3790-C9B5-4B86-9C60-D59AB87A7AB3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTO", "DTO\DTO.csproj", "{48E543FD-EA6C-48A0-9A9D-A2776DADF4F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{48E543FD-EA6C-48A0-9A9D-A2776DADF4F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{11E3ADA5-58F2-4637-A255-B13E90D10917}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{11E3ADA5-58F2-4637-A255-B13E90D10917}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestConsole", "TestConsole\TestConsole.csproj", "{3716402A-5215-4079-98DF-24DFE8614656}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsole", "TestConsole\TestConsole.csproj", "{3716402A-5215-4079-98DF-24DFE8614656}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,10 +29,6 @@ Global
 		{7F043693-0A9A-42C4-A2A9-A5F4EAB5C9BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F043693-0A9A-42C4-A2A9-A5F4EAB5C9BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F043693-0A9A-42C4-A2A9-A5F4EAB5C9BA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C2DCA034-80B6-4058-8BAA-8D6306852C29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C2DCA034-80B6-4058-8BAA-8D6306852C29}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C2DCA034-80B6-4058-8BAA-8D6306852C29}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C2DCA034-80B6-4058-8BAA-8D6306852C29}.Release|Any CPU.Build.0 = Release|Any CPU
 		{380C3790-C9B5-4B86-9C60-D59AB87A7AB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{380C3790-C9B5-4B86-9C60-D59AB87A7AB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{380C3790-C9B5-4B86-9C60-D59AB87A7AB3}.Release|Any CPU.ActiveCfg = Release|Any CPU

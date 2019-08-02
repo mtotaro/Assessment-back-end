@@ -47,7 +47,7 @@ namespace DataAccess
             Stream stream = webClient.OpenRead(@"http://www.mocky.io/v2/580891a4100000e8242b75c5");
             StreamReader reader = new StreamReader(stream);
             var json = reader.ReadToEnd();
-            this._clients = JsonConvert.DeserializeObject<Clients>(json).clients;
+            this._policies = JsonConvert.DeserializeObject<Policies>(json).policies;
         }
 
 
@@ -71,7 +71,7 @@ namespace DataAccess
         {
             get
             {
-                if (this.Policies == null)
+                if (this._policies == null)
                 {
                     this.GetAllPolicies();
                 }
@@ -83,7 +83,8 @@ namespace DataAccess
 
         public ClientDTO GetUserFromPolicy(Guid id)
         {
-            var policy = this.Policies.Where(x => x.Id.CompareTo(id) == 0).FirstOrDefault();
+
+            var policy = this.Policies.Where(x => x.Id==id).FirstOrDefault();
             if (policy == null)
             {
                 return null;

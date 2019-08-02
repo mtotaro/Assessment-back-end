@@ -15,6 +15,11 @@ namespace assessment_backEnd.Controllers
     [ApiController]
     public class PoliciesController : ControllerBase
     {
+        /// <summary>
+        /// Get the user linked to a policy number,only accessed by users with role admin
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("GetUserFromPolicy/{id}")]
         public ActionResult Get(Guid id)
         {
@@ -40,12 +45,13 @@ namespace assessment_backEnd.Controllers
                 return StatusCode(500);
             }
 
-
-
-
-
         }
 
+        /// <summary>
+        /// Get list of policies linked to a user name, accessed by users with role admin
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         [HttpGet("GetPoliciesFromUser/{name}")]
         public ActionResult Get(string name)
         {
@@ -75,5 +81,4 @@ namespace assessment_backEnd.Controllers
         }
     }
 
-}
 }

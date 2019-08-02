@@ -11,7 +11,10 @@ namespace TestConsole
     {
         static bool processed = false;
         static string clientId; //a0ece5db-cd14-4f21-812f-966633e7be86
-        static string apiURL; //https://localhost:44347/api/users/GetByName/test
+        static string apiURL; //https://localhost:44347/api/users/GetByName/Britney
+                              // static string apiURL; //https://localhost:44347/api/users/GetById/a0ece5db-cd14-4f21-812f-966633e7be86
+                              // static string apiURL; //https://localhost:44347/api/policies/GetUserFromPolicy/7b624ed3-00d5-4c1b-9ab8-c265067ef58b
+                              // static string apiURL; //https://localhost:44347/api/policies/GetPoliciesFromUser/Britney
 
         static void Main(string[] args)
         {
@@ -33,6 +36,8 @@ namespace TestConsole
             Console.ReadKey();
         }
 
+
+
         static async void MainAsync(string[] args)
         {
             try
@@ -50,7 +55,7 @@ namespace TestConsole
             {
                 Console.WriteLine("The aplication throw an unexpected exception");
             }
-            
+
             processed = true;
         }
     }

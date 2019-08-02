@@ -17,6 +17,11 @@ namespace assessment_backEnd.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
+        /// <summary>
+        /// Get user data by user id, can be accessed by users with role users and admin.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("GetById/{id}")]
         public ActionResult Get(Guid id)
         {
@@ -44,7 +49,11 @@ namespace assessment_backEnd.Controllers
                      
                        
         }
-
+        /// <summary>
+        /// Get user data by name,can be accessed by users with role users and admin 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         [HttpGet("GetByName/{name}")]
         public ActionResult Get(string name)
         {
